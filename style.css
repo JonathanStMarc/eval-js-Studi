@@ -3,17 +3,40 @@
         display: flex;
         flex-direction: column;
         width: 100%;
+        height: 100vh;
     }
+
     .player1Panel {
         position: relative;
-        top: 500px;
+        top: 450px;
+        height: 50%;
     }
     .player2Panel {
         position: relative;
-        top: -180px;
+        top: 50px;
+        height: 50%;
+    }
+    .player1,
+    .player2 {
+        margin-bottom: 0px;
     }
     .group-btn {
+        flex-direction: row;
+        position: relative;
         z-index: 1;
+        bottom: 50px;
+    }
+    .btn-roll {
+        position: relative;
+    }
+    .btn-hold {
+        position: relative;
+        margin-bottom: 150px;
+        top: 180px;
+    }
+    .dice {
+        position: relative;
+        top: 320px;
     }
 }
 * {
@@ -48,7 +71,6 @@ body {
     height: 75vh;
     margin: 50px;
     background-color: #fff;
-    border: 1px solid black;
 }
 .active,
 .winner {
@@ -128,7 +150,7 @@ img.dice {
     width: 8rem;
     height: 3rem;
     margin-bottom: 50px;
-    top: 120px;
+    top: 50px;
 }
 .btn-new {
     position: relative;
