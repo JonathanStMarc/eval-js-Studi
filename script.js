@@ -27,15 +27,15 @@ let gamePlaying = true;
 
 // Fonction Change Name
 function editNames() {
-    player1 = prompt("Inscrit le nom du joueur 1 :");
-    player2 = prompt("Inscrit le nom du joueur 2 :");
+    let player1 = prompt("Inscrit le nom du joueur 1 :");
+    let player2 = prompt("Inscrit le nom du joueur 2 :");
     document.querySelector("#name-1").innerHTML = player1;
     document.querySelector("#name-2").innerHTML = player2;
 }
 
 //New Game
 function newGame() {
-    let response = "Voulez-vous vraiment relancer le jeu ?.";
+    let response = "Voulez-vous vraiment relancer le jeu ?";
     if (confirm(response) == true) {
         window.location.reload();
     } else {
@@ -59,15 +59,15 @@ function nextPlayer() {
 // Fonction ROLL DICE
 document.querySelector(".btn-roll").addEventListener("click", () => {
     if (gamePlaying) {
-        // 1. Random number
+        //  Random number
         let dice = Math.floor(Math.random() * 6) + 1;
 
-        //2. Show the result of dice
+        // Show the result of dice
         let diceDOM = document.querySelector(".dice");
         diceDOM.style.display = "block";
         diceDOM.src = "images/de" + dice + ".webp";
 
-        //3. If Dice On 1
+        // If Dice On 1
         if (dice !== 1) {
             //Add score
             roundScore += dice;

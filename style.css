@@ -6,12 +6,11 @@
         width: 100%;
         height: 100vh;
     }
-
     .player1Panel {
         position: relative;
         top: 450px;
         height: 40%;
-        background-color: rgb(255, 255, 255);
+        /* background-color: rgb(255, 255, 255); */
     }
     .player2Panel {
         position: relative;
@@ -40,14 +39,63 @@
     .dice {
         position: relative;
         top: 320px;
-        margin-left: auto;
-        margin-right: auto;
+        margin-right: 25px;
+    }
+    .active,
+    .winner {
+        background-color: rgba(180, 179, 179, 0.562);
     }
 }
 /* General */
+/* 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+PENSER A MINIMIZER LE FICHIER CSS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*/
 * {
     text-align: center;
-    vertical-align: center;
     font-size: 24px;
     font-family: Lato;
 }
@@ -56,17 +104,10 @@ body {
     justify-content: center;
     align-content: center;
     align-items: center;
-    background-image: url(images/98942-woofing-farm-travel-field.jpeg);
+    background-image: url(images/bg.webp);
     background-size: cover;
     position: relative;
     height: 100vh;
-}
-.changeName {
-    position: absolute;
-    top: 10px;
-    color: #1f1f1f;
-    width: 200px;
-    height: 80px;
 }
 .block {
     display: flex;
@@ -79,13 +120,19 @@ body {
 }
 .active,
 .winner {
-    background-color: rgb(180, 179, 179);
+    background-color: rgba(180, 179, 179, 0.562);
 }
 .active .playerName::after {
     content: "\2022";
     font-size: 47px;
     /* position: absolute; */
-    color: green;
+    color: hsl(0, 75%, 60%);
+}
+.playerName {
+    z-index: 2;
+}
+.player-score {
+    text-shadow: 5px 5px rgba(128, 0, 70, 0.205);
 }
 .player1Panel {
     display: flex;
@@ -123,13 +170,13 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: green;
+    background-color: #e64c4c;
     color: #fff;
     margin-bottom: 150px;
     width: 50%;
     padding: 12px;
     text-align: center;
-    box-shadow: #eb4d4d 0 10px 10px;
+    box-shadow: rgb(38, 0, 128) 0 5px 10px;
 }
 
 .group-btn {
@@ -140,7 +187,7 @@ body {
 }
 img.dice {
     margin-top: 150px;
-
+    margin-left: 20px;
     box-shadow: 0 10px 60px rgba(0, 0, 0, 0.8);
 }
 .btn {
@@ -172,9 +219,18 @@ img.dice {
     height: 3rem;
 }
 .changeName {
-    margin-top: 20px;
+    position: absolute;
+    top: 10px;
+    color: #1f1f1f;
+    width: 200px;
+    height: 85px;
     color: #1f1f1f;
 }
 .changeName:hover {
-    color: red;
+    color: #e64c4c;
+}
+ion-icon {
+    color: #e64c4c;
+    margin-right: 0.5rem;
+    font-size: 28px;
 }
