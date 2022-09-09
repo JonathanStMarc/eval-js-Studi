@@ -17,8 +17,9 @@ tour de l’autre joueur.
 - Lancer le dé. S’il obtient un 1, son score ROUND est perdu et c’est la fin de son tour.
 Le premier joueur qui atteint les 100 points sur global gagne le jeu.
 */
-let scores = [0, 0];
-let activePlayer = 0;
+// index a 1 et 2 pour le tableau des scores.
+let scores = [0, 0, 0];
+let activePlayer = 1;
 let roundScore = 0;
 let gamePlaying = true;
 
@@ -29,4 +30,17 @@ function editNames() {
 
     document.querySelector("#name-0").innerHTML = player1;
     document.querySelector("#name-1").innerHTML = player2;
+}
+
+// Fonction NEXT PLAYER
+function nextPlayer() {
+    //Next player
+    activePlayer === 1 ? (activePlayer = 2) : (activePlayer = 1);
+    roundScore = 0;
+
+    document.getElementById("current-1").textContent = "0";
+    document.getElementById("current-2").textContent = "0";
+
+    document.querySelector(".player1Panel").classList.toggle("active");
+    document.querySelector(".player2Panel").classList.toggle("active");
 }
