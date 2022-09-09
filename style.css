@@ -133,7 +133,10 @@ body {
 }
 
 .group-btn {
+    display: flex;
     flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-around;
 }
 img.dice {
     margin-top: 150px;
@@ -154,7 +157,7 @@ img.dice {
     position: relative;
     width: 8rem;
     height: 3rem;
-    top: 80px;
+    top: 50px;
 }
 .btn-hold {
     position: relative;
@@ -165,7 +168,6 @@ img.dice {
 }
 .btn-new {
     position: relative;
-    margin-top: -150px;
     width: 8rem;
     height: 3rem;
 }
