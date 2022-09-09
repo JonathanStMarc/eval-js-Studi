@@ -28,8 +28,8 @@ function editNames() {
     player1 = prompt("Inscrit le nom du joueur 1 :");
     player2 = prompt("Inscrit le nom du joueur 2 :");
 
-    document.querySelector("#name-0").innerHTML = player1;
-    document.querySelector("#name-1").innerHTML = player2;
+    document.querySelector("#name-1").innerHTML = player1;
+    document.querySelector("#name-2").innerHTML = player2;
 }
 
 // Fonction NEXT PLAYER
@@ -44,3 +44,26 @@ function nextPlayer() {
     document.querySelector(".player1Panel").classList.toggle("active");
     document.querySelector(".player2Panel").classList.toggle("active");
 }
+
+// Fonction ROLL DICE
+document.querySelector(".btn-roll").addEventListener("click", () => {
+    if (gamePlaying) {
+        // 1. Random number
+        let dice = Math.floor(Math.random() * 6) + 1;
+
+        //2. Show the result if dice
+        let diceDOM = document.querySelector(".dice");
+        diceDOM.style.display = "block";
+        diceDOM.src = "images/de" + dice + ".webp";
+
+        //3. If Dice On 1
+        if (dice !== 1) {
+            //Add score
+            roundScore += dice;
+            document.querySelector("#current-" + activePlayer).textContent =
+                roundScore;
+        } else {
+            nextPlayer();
+        }
+    }
+});

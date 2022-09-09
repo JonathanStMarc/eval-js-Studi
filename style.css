@@ -1,3 +1,4 @@
+/* @MediaQuery */
 @media screen and (max-width: 500px) {
     .block {
         display: flex;
@@ -9,12 +10,14 @@
     .player1Panel {
         position: relative;
         top: 450px;
-        height: 50%;
+        height: 40%;
+        background-color: rgb(255, 255, 255);
     }
     .player2Panel {
         position: relative;
         top: 50px;
-        height: 50%;
+        height: 50vh;
+        background-color: rgb(255, 255, 255);
     }
     .player1,
     .player2 {
@@ -37,22 +40,24 @@
     .dice {
         position: relative;
         top: 320px;
+        margin-left: auto;
+        margin-right: auto;
     }
 }
+/* General */
 * {
     text-align: center;
     vertical-align: center;
     font-size: 24px;
+    font-family: Lato;
 }
 body {
-    font-family: Lato;
     display: flex;
     justify-content: center;
     align-content: center;
     align-items: center;
     background-image: url(images/98942-woofing-farm-travel-field.jpeg);
     background-size: cover;
-    font-weight: 400;
     position: relative;
     height: 100vh;
 }
@@ -74,15 +79,13 @@ body {
 }
 .active,
 .winner {
-    background-color: #f7f7f7;
+    background-color: rgb(180, 179, 179);
 }
-.active .player-name::after {
+.active .playerName::after {
     content: "\2022";
     font-size: 47px;
-    position: absolute;
+    /* position: absolute; */
     color: green;
-    top: -7px;
-    right: 10px;
 }
 .player1Panel {
     display: flex;
@@ -101,7 +104,7 @@ body {
 .player1,
 .player2 {
     margin-bottom: 50px;
-    font-size: 24px;
+    font-size: 30px;
 }
 .player-score {
     font-size: 80px;
