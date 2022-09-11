@@ -27,8 +27,8 @@ let gamePlaying = true;
 
 // Fonction Change Name
 function editNames() {
-    let player1 = prompt("Inscrit le nom du joueur 1 :");
-    let player2 = prompt("Inscrit le nom du joueur 2 :");
+    const player1 = prompt("Inscrit le nom du joueur 1 :");
+    const player2 = prompt("Inscrit le nom du joueur 2 :");
     document.querySelector("#name-1").innerHTML = player1;
     document.querySelector("#name-2").innerHTML = player2;
 }
@@ -75,6 +75,31 @@ document.querySelector(".btn-roll").addEventListener("click", () => {
                 roundScore;
             // NextPLayer
         } else {
+            nextPlayer();
+        }
+    }
+});
+// Fonction HOLD
+document.querySelector(".btn-hold").addEventListener("click", () => {
+    if (gamePlaying) {
+        // Add CURRENT score to GLOBAL score
+        scores[activePlayer] += roundScore;
+        document.querySelector("#score-" + activePlayer).textContent =
+            scores[activePlayer];
+
+        // Check if player won the game
+        if (scores[activePlayer] >= 100) {
+            let winner = document.querySelector(
+                "#name-" + activePlayer,
+            ).textContent;
+            document.querySelector("#name-" + activePlayer).textContent =
+                winner + "  " + "Winner !";
+            document.querySelector(".dice").style.display = "none";
+            document.querySelector(".btn-roll").style.display = "none";
+            document.querySelector(".btn-hold").style.display = "none";
+            gamePlaying = false;
+        } else {
+            //Next player
             nextPlayer();
         }
     }
