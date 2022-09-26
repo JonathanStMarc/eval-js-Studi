@@ -19,8 +19,7 @@ Le premier joueur qui atteint les 100 points sur global gagne le jeu.
 */
 
 // Variables
-// index a 1 et 2 pour le tableau des scores.
-let scores = [0, 0, 0];
+let scores = [null, 0, 0];
 let activePlayer = 1;
 let roundScore = 0;
 let gamePlaying = true;
@@ -29,6 +28,7 @@ let gamePlaying = true;
 function editNames() {
     const player1 = prompt("Inscrit le nom du joueur 1 :");
     const player2 = prompt("Inscrit le nom du joueur 2 :");
+
     document.querySelector("#name-1").innerHTML = player1;
     document.querySelector("#name-2").innerHTML = player2;
 }
@@ -52,8 +52,8 @@ function nextPlayer() {
     document.getElementById("current-1").textContent = "0";
     document.getElementById("current-2").textContent = "0";
 
-    document.querySelector(".player1Panel").classList.toggle("active");
-    document.querySelector(".player2Panel").classList.toggle("active");
+    document.querySelector(".player1").classList.toggle("active");
+    document.querySelector(".player2").classList.toggle("active");
 }
 
 // Fonction ROLL DICE
