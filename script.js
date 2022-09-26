@@ -64,7 +64,7 @@ document.querySelector(".btn-roll").addEventListener("click", () => {
 
         // Show the result of dice
         let diceDOM = document.querySelector(".dice");
-        diceDOM.style.display = "block";
+        // diceDOM.style.display = "block";
         diceDOM.src = "images/de" + dice + ".webp";
 
         // If Dice On 1
