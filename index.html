@@ -13,17 +13,19 @@
         <link rel="stylesheet" href="style.css" />
         <title>Evaluation Jeu de Dé Studi</title>
     </head>
+
     <body>
         <!-- Function onclick editNames() in Html -->
         <button onClick="editNames()" class="btn changeName">
             Enter your gamer name
             <br /><ion-icon name="brush-outline"></ion-icon>
         </button>
+
         <main class="block">
             <!-- PLayer 1 -->
             <section class="player1 active">
                 <div class="nameScore">
-                    <div class="playerName" id="name-1">PLAYER 1</div>
+                    <div class="playerName1" id="name-1">PLAYER 1</div>
                     <div class="player-score" id="score-1">00</div>
                 </div>
                 <div class="player-current-box">
@@ -31,13 +33,19 @@
                     <div class="player-current-score" id="current-1">0</div>
                 </div>
             </section>
+
             <!-- Groupe section btn -->
             <div class="group-btn">
                 <!-- Function onclick NewGame() in Html -->
                 <button onclick="newGame()" class="btn btn-new">
                     <ion-icon name="add-circle-outline"></ion-icon>New Game
                 </button>
-                <img src="images/de6.webp" alt="Dice" class="dice" />
+                <img
+                    src="images/de6.webp"
+                    alt="Dice"
+                    class="dice"
+                    id="animateDiceOnClick"
+                />
                 <button class="btn btn-roll">
                     <ion-icon name="sync"></ion-icon>Roll dice
                 </button>
@@ -45,10 +53,11 @@
                     <ion-icon name="download-outline"></ion-icon>Hold
                 </button>
             </div>
+
             <!-- Player 2 -->
             <section class="player2">
                 <div class="nameScore">
-                    <div class="playerName" id="name-2">PLAYER 2</div>
+                    <div class="playerName2" id="name-2">PLAYER 2</div>
                     <div class="player-score" id="score-2">00</div>
                 </div>
                 <div class="player-current-box">
@@ -57,6 +66,7 @@
                 </div>
             </section>
         </main>
+
         <script src="script.js"></script>
         <!-- Ionic icon -->
         <script

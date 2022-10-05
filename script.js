@@ -23,25 +23,41 @@ let scores = [null, 0, 0];
 let activePlayer = 1;
 let roundScore = 0;
 let gamePlaying = true;
+let player1 = document.querySelector(".player1");
+let player2 = document.querySelector(".player2");
+let playerName1 = document.querySelector(".playerName1");
+let playerName2 = document.querySelector(".playerName2");
+let currentScore1 = document.getElementById("current-1");
+let currentScore2 = document.getElementById("current-2");
+let btnHold = document.querySelector(".btn-hold");
+let btnRoll = document.querySelector(".btn-roll");
+let diceDOM = document.querySelector(".dice");
+let response = "Voulez-vous vraiment relancer le jeu ?";
+let animateDice = document.getElementById("animateDiceOnClick");
 
 // Fonction Change Name
 function editNames() {
-    const player1 = prompt("Inscrit le nom du joueur 1 :");
-    const player2 = prompt("Inscrit le nom du joueur 2 :");
+    const changePlayerName1 = prompt("Inscrit le nom du joueur 1 :");
+    const changePlayerName2 = prompt("Inscrit le nom du joueur 2 :");
 
-    document.querySelector("#name-1").innerHTML = player1;
-    document.querySelector("#name-2").innerHTML = player2;
+    playerName1.innerHTML = changePlayerName1;
+    playerName2.innerHTML = changePlayerName2;
 }
 
 //New Game
 function newGame() {
-    let response = "Voulez-vous vraiment relancer le jeu ?";
+    response;
     if (confirm(response) == true) {
         window.location.reload();
     } else {
         return false;
     }
 }
+// Function for dice animate
+btnRoll.addEventListener("click", () => {
+    animateDice.classList.toggle("turnDice");
+    // animateDice.classList.remove("turnDice");
+});
 
 // Fonction NEXT PLAYER
 function nextPlayer() {
@@ -49,21 +65,19 @@ function nextPlayer() {
     activePlayer === 1 ? (activePlayer = 2) : (activePlayer = 1);
     roundScore = 0;
 
-    document.getElementById("current-1").textContent = "0";
-    document.getElementById("current-2").textContent = "0";
+    currentScore1.textContent = "0";
 
-    document.querySelector(".player1").classList.toggle("active");
-    document.querySelector(".player2").classList.toggle("active");
+    currentScore2.textContent = "0";
+
+    player1.classList.toggle("active");
+    player2.classList.toggle("active");
 }
 
 // Fonction ROLL DICE
-document.querySelector(".btn-roll").addEventListener("click", () => {
+btnRoll.addEventListener("click", () => {
     if (gamePlaying) {
         //  Random number
         let dice = Math.floor(Math.random() * 6) + 1;
-
-        // Show the result of dice
-        let diceDOM = document.querySelector(".dice");
         // diceDOM.style.display = "block";
         diceDOM.src = "images/de" + dice + ".webp";
 
@@ -80,7 +94,7 @@ document.querySelector(".btn-roll").addEventListener("click", () => {
     }
 });
 // Fonction HOLD
-document.querySelector(".btn-hold").addEventListener("click", () => {
+btnHold.addEventListener("click", () => {
     if (gamePlaying) {
         // Add CURRENT score to GLOBAL score
         scores[activePlayer] += roundScore;
@@ -89,14 +103,14 @@ document.querySelector(".btn-hold").addEventListener("click", () => {
 
         // Check if player won the game
         if (scores[activePlayer] >= 100) {
-            let winner = document.querySelector(
+            const winner = document.querySelector(
                 "#name-" + activePlayer,
             ).textContent;
             document.querySelector("#name-" + activePlayer).textContent =
                 winner + "  " + "Winner !";
             document.querySelector(".dice").style.display = "none";
-            document.querySelector(".btn-roll").style.display = "none";
-            document.querySelector(".btn-hold").style.display = "none";
+            btnRoll.style.display = "none";
+            btnHold.style.display = "none";
             gamePlaying = false;
         } else {
             //Next player
